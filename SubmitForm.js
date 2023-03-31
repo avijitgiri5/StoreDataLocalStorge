@@ -31,7 +31,8 @@ function onsubmit(e)
     //    userslist.appendChild(li)
 
        //insert it in to the local storage
-       localStorage.setItem(nameInput.value,emailInput.value);
+       localStorage.setItem("name",nameInput.value);
+       localStorage.setItem('email',emailInput.value)
        alert('Success');
 
        //clear all fields
