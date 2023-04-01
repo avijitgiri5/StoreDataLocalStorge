@@ -23,16 +23,44 @@ function onsubmit(e)
         setTimeout(()=>msg.remove(),3000)
     }
     else{
-       const li=document.createElement('li');
-       const text=document.createTextNode(`${nameInput.value} : ${emailInput.value}`);
-       
-    //    li.appendChild(text);
-    //    li.classList.add('error')
-    //    userslist.appendChild(li)
+        // create li tag ,add text in li from input element,show this value
+        
+        //    const li=document.createElement('li');
+        //    const text=document.createTextNode(`${nameInput.value} : ${emailInput.value}`);
+        
+        //    li.appendChild(text);
+        //    li.classList.add('error')
+        //    userslist.appendChild(li)
 
-       //insert it in to the local storage
-       localStorage.setItem("name",nameInput.value);
-       localStorage.setItem('email',emailInput.value)
+
+            //insert input value in to localstorage
+
+            //    localStorage.setItem("name",nameInput.value);
+            //    localStorage.setItem('email',emailInput.value)
+
+
+       //insert it in to the local storage using object
+        let myObj = {
+            name: nameInput.value,
+            email: emailInput.value
+
+        };
+        //convert object into the string 
+        //make a object readable this is called serialize
+
+        let myObj_serialize=JSON.stringify(myObj);
+        //console.log(myObj_serialize);
+
+       localStorage.setItem("MyobjKey",myObj_serialize);
+
+        //convert string to normal object
+        let myObj_desirialize=JSON.parse(localStorage.getItem('MyobjKey'));
+        console.log(myObj_desirialize.name)
+
+
+
+
+    
        alert('Success');
 
        //clear all fields
